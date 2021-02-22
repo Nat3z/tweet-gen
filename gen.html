@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./tweet.css">
+</head>
+<body>
+    <header>
+        <br>
+        <h1 style="float: left; padding: 0px 20px 0px;">Twitter Generator</h1><p style="display: block">Created by Nat3z</p>
+        <br>
+        <br>
+    </header>
+    <br>
+    
+    <div id="owolay" style="z-index: 25; display: none; background: rgba(0, 0, 0, 0.794);">
+        <div style="background:whitesmoke; justify-content: center; align-items: center; transform: translate(0, -50%); top: 22%;"><br><h1 style="font-size: larger; border: none; color: black; border-radius: 2px;">Compose Tweet</h1><br></div>
+        <div style="justify-content: center; align-items: center; transform: translate(0, -50%); top: 30%; background-color: rgb(255, 255, 255);">
+            <br>
+            <input type="number" style="outline: none; background: whitesmoke; border: 2.1px solid rgb(0, 136, 182); width: 27%;" placeholder="Like Amount *" id="like"></input>
+            <input type="number" style="outline: none; background: whitesmoke; border: 2.1px solid rgb(0, 136, 182); width: 30%;" placeholder="Retweet Amount *" id="ret"></input>
+            <input type="number" style="outline: none; background: whitesmoke; border: 2.1px solid rgb(0, 136, 182); width: 28%;" placeholder="Quote Amount *" id="quote"></input>
+            <br>
+            <br>
+            <input type="text" style="outline: none; background: whitesmoke; border: 2.1px solid rgb(0, 136, 182); width: 28%;" placeholder="Your @ *" id="myat"></input>
+            <input type="text" style="outline: none; background: whitesmoke; border: 2.1px solid rgb(0, 136, 182); width: 28%;" placeholder="Your Display Name *" id="disname"></input>
+            <br>
+            <br>
+            <input type="text" style="outline: none; background: whitesmoke; border: 2.1px solid rgb(0, 136, 182); width: 90%;" placeholder="Your Profile Picture URL *" id="pfp"></input>
+            <br>
+            <br>
+            <input type="text" style="outline: none; background: whitesmoke; border: 2.1px solid rgb(0, 136, 182); width: 90%;" placeholder="Time Sent *" id="time"></input>
+            <input type="text" style="outline: none; background: whitesmoke; border: 2.1px solid rgb(0, 136, 182); width: 90%;" placeholder="Date Sent *" id="date"></input>
+
+            <br>
+            <br>
+            <button style="float: right; left: -20px; position: relative; background: rgb(1, 152, 202); color: whitesmoke; top: -3px;"><h1 style="font-weight: bolder;" onclick="tweet()">Tweet</h1></button>
+            <br>
+            <br>
+        </div>
+
+    </div>
+    <div id="overlay" style="z-index: 20; display: block; background: rgba(0, 0, 0, 0.555);">
+        <div style="background:whitesmoke; justify-content: center; align-items: center; transform: translate(0, -50%); top: 19%;"><br><h1 style="font-size: larger; border: none; color: black; border-radius: 2px;">Compose Tweet</h1><br></div>
+        <div style="justify-content: center; align-items: center; transform: translate(0, -50%); top: 30%; background-color: rgb(255, 255, 255);">
+            <br>
+            <textarea placeholder="What's Happening?" maxlength="280" style="position: relative; outline: none;color: rgb(100, 100, 100); width: 95%; background: rgb(233, 233, 233); height: 100px;resize: none; font-family: Arial, Helvetica, sans-serif; border: none; font-size: medium;" id="txt"></textarea>
+            <h1 style="padding: 0px 10px 0px; float: left; font-size: 30px; background-color: dimgrey; position: relative; top: 0.6px; right: -10px; z-index: 10; border: 2.1px solid rgb(110, 110, 110);">@</h1><textarea placeholder="Who will you @?" style="font-size: 25px;padding: 0px 37px 0px;position: relative; float: left; right: -5px; outline: none;color: rgb(100, 100, 100); width: 35%; background: whitesmoke; height: 30px;resize: none; font-family: Arial, Helvetica, sans-serif;  border: 2.1px solid rgb(93, 93, 93);" id="ats"></textarea>
+            <br>
+            <br>
+            <br>
+            <br>
+            <h1 style="float: left; font-size: 30px; background-color: dimgrey; position: relative; top: 0.6px; padding: 0px 16px 0px; right: -10px; z-index: 10; border: 2.1px solid rgb(110, 110, 110); top: -10px">#</h1><textarea placeholder="What Hashtags?" style="font-size: 25px;padding: 0px 37px 0px;position: relative; float: left; right: -5px; outline: none;color: rgb(100, 100, 100); width: 35%; right: -8px;top: -10px;background: whitesmoke; height: 30px;resize: none; font-family: Arial, Helvetica, sans-serif;  border: 2.1px solid rgb(93, 93, 93);" id="hash"></textarea>
+            <br>
+            <br>
+            <br>
+            <br>
+            <h1 style="float: left; padding: 0px 20px 0px;" id="noimgatt">No Image Attached</h1><button style="background: rgb(2, 179, 238); color: white; font-size: 20px; border-radius: 5px; float: left; position: relative;" onclick="img()">Image</button>
+            <button style="float: right; left: -20px; position: relative; background: rgb(1, 152, 202); color: whitesmoke; top: -3px;" onclick="askforadmin()"><h1 style="font-weight: bolder;">Tweet</h1></button>
+            <br>
+            <br>
+        </div>
+    </div>
+
+    <div id="img" style="z-index: 25; display: none; background: rgba(0, 0, 0, 0.794);">
+        <div style="background:whitesmoke; justify-content: center; align-items: center; transform: translate(0, -50%); top: 28%;"><br><h1 style="font-size: larger; border: none; color: black; border-radius: 2px;">Attach Image</h1><br></div>
+        <div style="justify-content: center; align-items: center; transform: translate(0, -50%); top: 30%; background-color: rgb(255, 255, 255);">
+            <br>
+            <textarea id="imgurl"placeholder="Insert Image Url" style="position: relative; outline: none;color: rgb(100, 100, 100); width: 95%; background: whitesmoke; height: 30px;resize: none; font-family: Arial, Helvetica, sans-serif; border-radius: 12px; border: 2.1px solid rgb(0, 136, 182); font-size: large;"></textarea>
+            <br>
+            <button style="float: right; left: -20px; position: relative; background: rgb(1, 152, 202); color: whitesmoke;" onclick="imgconfirm()"><h1 style="font-weight: bolder;">Confirm</h1></button>
+            <br>
+            <br>
+            <br>
+    </div>
+
+</body>
+<script src="./submit.js"></script>
+</html>
